@@ -1,0 +1,17 @@
+{
+	"title": "codesnip.io/refdocs",
+	"tagline": "Code References for Front-end Web Development",
+	"theme": "navy",
+	"date_modified": true,
+	"timezone": "America/New_York",
+	"float": false,
+	"links": {
+		"jQuery": "http://jquery.com",
+		"Dojo Toolkit": "http://dojotoolkit.org",
+		"Made by codesnip": "http://codesnip.io"
+	},
+    "ignore": {
+        "files": ["00_Getting_Started.md"],
+        "folders": ["jQuery"]
+    }
+}

@@ -1,0 +1,53 @@
+The dojoConfig object (djConfig before V1.6) is the primary mechanism for configuring Dojo in a web page or application. It allows you to set options and default behavior for various aspects of the toolkit. It can also be used as a configuration point for custom applications.
+
+dojoConfig can be populated in three ways. 
+                 
+**Creating a dojoConfig object BEFORE including the dojo core - Programmatic approach**
+
+Used in cases where lots of attributes must be set in the dojo.config object.
+
+```html
+<script>
+    dojoConfig= {
+        baseUrl: "js"
+        isDebug: true, 
+        parseOnLoad: false,
+        async: true,
+        packages: [
+         {
+           "name": "dojo",
+           "location": "lib/dojo"
+         }
+        ]
+    };
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"></script>
+<script>
+require(["dijit/registry", "dojo/parser", "dojo/json", "dojo/_base/config", "dojo/domReady!"]
+, function(registry, parser, JSON, config) {
+    parser.parse();
+});
+</script>
+```
+**Specifying dojo.config options via the data-dojo-config="..." attribute - Declarative approach**
+
+```html
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.xd.js"
+        data-dojo-config="isDebug: true,parseOnLoad: true,async: true">
+</script>
+```
+
+Both the methods  are functionally equivalent and the config options are ultimately mixed into the dojo/_base/config object, they are retrieved after the bootstrapping process, as dojo.js loads.
+                       
+**Including dojoConfig in a Custom Build**                                               
+This is for custom scoped dojo and a dojoConfig object local to your version not affected by any globally declared dojoConfig object in the page. Include dojoConfig object into the build via the scopeDjConfig parameter
+
+```     
+scopeDjConfig={isDebug:true,scopeMap:["dojo","mydojo"],["dijit","mydijit"],["dojox","mydojox"]}
+```
+
+References:  
+http://dojotoolkit.org/documentation/tutorials/1.8/dojo_config/   
+http://dojotoolkit.org/reference-guide/1.8/dojo/_base/config.html#explicitly-creating-a-dojoconfig-object-before-including-the-dojo-core                  
+http://dojotoolkit.org/reference-guide/1.8/dojo/_base/config.html                      
+http://dojotoolkit.org/reference-guide/1.8/loader/amd.html#the-amd-api
