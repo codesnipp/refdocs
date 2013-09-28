@@ -1,3 +1,8 @@
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Ways of creating Objects in JavaScript](#ways-of-creating-objects-in-javascript)
+- [Prototypes](#prototypes)
+
 #### Ways of creating Objects in JavaScript
 
  **Object Literals**
